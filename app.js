@@ -1,7 +1,7 @@
 let current4cast = document.querySelector('.current-forecast');
 
 function weatherWizard(){
-    let apiKey = '9da597c47ba44e7ba434f530653fc329',
+    let apiKey = 'API KEY',//your api key goes here
         city = document.querySelector('.city').value;
     
     if(!city){
