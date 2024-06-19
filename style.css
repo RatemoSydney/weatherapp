@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 html,
 body{
     width: 100vw;
@@ -11,7 +12,15 @@ body{
     place-content: center;
     background: #0000fe;
     color: #fffdff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+
+    h1, h2, h3, h4, h5, h6{
+        line-height: 1.2;
+        letter-spacing: 1px;
+    }
 }
+
 .container{
     width: fit-content;
     /* min-width: 500px; */
@@ -20,71 +29,113 @@ body{
     height: fit-content;
     background:linear-gradient(#fffdff4d,#f7f6ff4d,#fffbf84d);
     backdrop-filter: blur(2em);
-    h2{
+
+    h1{
         width: fit-content;
         padding: 10px 0 20px;
         margin: auto;
         font-weight: 400;
         font-size: 20px;
     }
+    
     div{
         width: 100%;
         height: fit-content;
     }
 }
+
 .search-box{
-    padding: 20px;
+    padding: 20px 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 
     input{
-        min-width: 200px;
-        padding: 8px 12px;
+        width: calc(100%-16px);
+        padding: 8px;
         outline: none;
         border: 0;
         border-bottom: 1px solid #2e1d38;
         /* border-radius: 5px; */
         background: transparent;
         color: inherit;
+
         &::placeholder{
             text-align: center;
         }
+
         &:focus{
             border: 0;
             border-radius: 5px;
             background: #fffdffaf;
             backdrop-filter: blur(1em);
             color:#2e1d38;
+
             &::placeholder{
                 opacity: 0;
             }   
         }
     }
+
     .search-btn{
         all: unset;
         padding: 8px 15px;
         border-radius: 24px;
         background: #fffdffaf;
-        /* border: 1px solid #00b3f4; */
         cursor: pointer;
         text-align: center;
         color: #01011af5;
     }
 }
+
 .citybox{
-    display: none;
+    display: none; /*grid*/
     gap: 20px;
     place-content: center;
+
     .current-forecast{
         width: fit-content;
         height: fit-content;
+        display: grid;
+        place-content: center;
+        gap: 10px;
+
+        h2{
+            width: fit-content;
+            padding: 10px 0 20px;
+            margin: auto;
+            font-weight: 300;
+            font-size: 18px;
+        }
+        .weather-icon{
+            width: 210px;
+            height: 210px;
+        }
     }
+
     .hourly-forecast{
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        white-space: nowrap;
+        overflow-x: auto;
+        .hourly-item{
+            flex: 0 0 auto;
+            width: 80px;
+            display: grid;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* margin-right: 10px; */
+        }
+        .img{
+            width: 30px;
+            height: 30px;
+        }
+        .hourly-heading{
+            color: currentColor;
+        }
     }
 }
