@@ -1,8 +1,8 @@
 let current4cast = document.querySelector('.current-forecast');
 
 function weatherWizard(){
-    let apiKey = 'API KEY',//your api key goes here
-        city = document.querySelector('.city').value;
+    let apiKey = '9da597c47ba44e7ba434f530653fc329',
+        city = document.querySelector('.searchbox').value;
     
     if(!city){
         alert('Please enter a city');
@@ -50,8 +50,27 @@ function displayWeather(data){
             temprature = Math.round(data.main.temp),
             description = data.weather[0].description,
             iconCode = data.weather[0].icon,
-            iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
+            iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`,
+            tempHTML = `<p>${temprature}</p>`,
+            weatherHTML = `
+                <p>${cityName}</p>
+                <p>${description}</p>
+            `;
+        
+        tempinfo.innerHTML = tempHTML;
+        weatherData.innerHTML = weatherHTML;
+        weatherIcon.src = iconUrl;
+        weatherIcon.alt = description;
+
+        showImage();
     }
 }
 
-// function displayHourlyForecast(data.list){}
+function displayHourlyForecast(hourlyData){
+    const hourlyforecast = document.querySelector('.hourly-forecast'),
+        next24Hours = hourlyData.slice(0,8);
+
+    next24Hours.forEach(item =>{
+
+    })
+}
